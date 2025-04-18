@@ -24,31 +24,46 @@ function getHumanChoice(){
     return prompt("Pick either rock, paper or scissors.")
 }
 function playRound(humanChoice, computerChoice){
-    /*
-    caseSensitive(humanChoice)
-    WHEN humanChoice EQUALS computerChoice THEN
-        None gets points
-        stalemate
-    WHEN HumanChoice is rock AND computerChoice is scissors THEN
-        Humans wins and increments points by 1
-    When humanChoice is rock AND computerChoice is paper THEN
-        Computer Wins and increments points by 1
-    
-    WHEN humanChoice is paper AND computerChoice is scissors THEN
-        Computer wins and increments points by 1
-    WHen humanChoice is paper AND computerChoice is rock THEN 
-        Human wins and increments points by 1
-    
-    When humanChoice is scissors AND computerChoice is rock THEN
-        Computer wins and increments score by 1
-    When humanChoice is scissors AND computerChoice is paper THEN
-        human wins and increments score by 1
-
-    */
+  // Changes any characters to lowercase
    let human = humanChoice.toLowerCase()
-   console.log(human)
+   
+   if (human == computerChoice){
+    console.log("It's a stalemate! None wins!")
+
+   } else if (human == "rock") {
+    if (computerChoice == "scissors"){
+        console.log("User Wins! "+ human +" beats "+ computerChoice)
+        humanScore ++;
+    }
+    if (computerChoice == "paper"){
+        console.log("Computer wins!"+ computerChoice + " beats " + human)
+        computerScore ++;
+    }
+    
+   } else if (human == "paper"){
+    if (computerChoice == "rock"){
+        console.log("User wins!" + human + " beats " + computerChoice)
+        humanScore ++;
+    }
+    if (computerChoice ==  "scissors"){
+        console.log("Computer wins!" + computerChoice + " beats " + human)
+        computerScore ++;
+    }
+
+   } else if (human == "scissors"){
+    if (computerChoice == "rock"){
+        console.log("Computer Wins!"+ computerChoice + " beats " + human)
+        computerScore ++;
+    }
+    if (computerChoice == "paper"){
+        console.log("User wins!" + human + " beats " + computerChoice)
+        humanScore ++;
+    }
+   }
+
 }
 
-let humanChoice = getHumanChoice();
-let computerChoice = getComputerChoice();
-playRound(humanChoice, computerChoice);
+let humanSelection = getHumanChoice();
+let computerSelection = getComputerChoice();
+playRound(humanSelection, computerSelection);
+console.log ("The final score is " + humanScore + " for the user and " + computerScore + " for the computer.")
