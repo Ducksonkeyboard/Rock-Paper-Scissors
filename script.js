@@ -1,3 +1,6 @@
+let humanScore = 0;
+let computerScore = 0;
+
 console.log("hello world")
 //will return either rock, paper, or scissors.
 function getComputerChoice (){
@@ -16,10 +19,11 @@ function getComputerChoice (){
         return "scissors"
     }
 }
-
+//Returns the user's input for RPS
 function getHumanChoice(){
     return prompt("Pick either rock, paper or scissors.")
 }
+
 
 console.log(getComputerChoice())
 console.log("User picked "+ getHumanChoice())
